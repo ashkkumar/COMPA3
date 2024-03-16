@@ -13,14 +13,14 @@ This Java application connects to a PostgreSQL database and performs CRUD operat
 
 ### 2. Database Setup
 1. Create a database named 'StudentManagementSystem' in PostgreSQL.
-2. Create a 'students' table using the following SQL query: &nbsp;
-   CREATE TABLE students (&nbsp;
-       student_id SERIAL PRIMARY KEY,&nbsp;
-       first_name TEXT NOT NULL,&nbsp;
-       last_name TEXT NOT NULL,&nbsp;
-       email TEXT NOT NULL UNIQUE,&nbsp;
-       enrollment_date DATE&nbsp;
-   );&nbsp;
+2. Create a 'students' table using the following SQL query:\ 
+   CREATE TABLE students (\
+       student_id SERIAL PRIMARY KEY,\
+       first_name TEXT NOT NULL,\
+       last_name TEXT NOT NULL,\
+       email TEXT NOT NULL UNIQUE,\
+       enrollment_date DATE\
+   );\
 3. Add the initial data or any data you would like to use:
    INSERT INTO students (first_name, last_name, email, enrollment_date) VALUES
     ('John', 'Doe', 'john.doe@example.com', '2023-09-01'),
