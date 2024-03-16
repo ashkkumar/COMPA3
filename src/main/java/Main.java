@@ -12,14 +12,21 @@ public class Main {
     public static void main(String[] args) {
 
         students s = new students();
-        s.getAllStudents();
+        s.getAllStudents(); // Getting all students from initial example
+        System.out.print("\n");
 
-        //s.addStudent("Ash", "Kumar", "ash.kumar@example.com", "2024-03-15");
+
+        // Adding a student
+        s.addStudent("Ash", "Kumar", "ash.kumar@example.com", "2024-03-15");
+        s.getAllStudents();
+        System.out.print("\n");
+
+        // Updating the new students email
         s.updateStudentEmail(4, "ashkuma@cmail.com");
-        System.out.println("\n");
         s.getAllStudents();
+        System.out.print("\n");
 
-        System.out.println("\n");
+        // Removing the new student
         s.deleteStudent(4);
         s.getAllStudents();
     }
