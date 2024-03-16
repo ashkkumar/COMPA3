@@ -24,6 +24,7 @@ public class students {
                 String email = result.getString("email");
                 Date date = result.getDate("enrollment_date");
 
+                // Printing out the table from the database
                 System.out.println("student_id: " + id + ", first_name: " + fname +
                         ", last_name: " + lname + ", email: " + email +
                         ", enrollment_date: " + date);
@@ -36,18 +37,20 @@ public class students {
 
     public void addStudent(String first_name, String last_name, String email, String enrollment_date) {
 
+        // Creating a string for the sql statement
         String insertSQL = "INSERT INTO students (first_name, last_name, email, enrollment_date) VALUES (?, ?, ?, ?)";
+        // Converting String to Date so that it matches datatype in the Database
         Date date = Date.valueOf(enrollment_date);
 
         try {
             Class.forName("org.postgresql.Driver");
-            Connection connection = DriverManager.getConnection(url, user, password);
+            Connection connection = DriverManager.getConnection(url, user, password); // Connectint to db
             PreparedStatement statement = connection.prepareStatement(insertSQL);
-            statement.setString(1, first_name);
-            statement.setString(2, last_name);
-            statement.setString(3, email);
-            statement.setDate(4, date);
-            statement.executeUpdate();
+            statement.setString(1, first_name); // Setting first name
+            statement.setString(2, last_name); // setting last name
+            statement.setString(3, email); // setting email
+            statement.setDate(4, date); // setting join date
+            statement.executeUpdate(); // updating database
 
         } catch (Exception e) {
             System.out.println(e);
@@ -57,15 +60,16 @@ public class students {
 
     public void updateStudentEmail(int id, String email){
 
+        // Creating a string for the sql statement
         String insertSQL = "UPDATE students SET email = ? WHERE student_id = ?";
 
         try {
             Class.forName("org.postgresql.Driver");
-            Connection connection = DriverManager.getConnection(url, user, password);
+            Connection connection = DriverManager.getConnection(url, user, password); // connecting to db
             PreparedStatement statement = connection.prepareStatement(insertSQL);
-            statement.setString(1, email);
-            statement.setInt(2, id);
-            statement.executeUpdate();
+            statement.setString(1, email); // Setting email
+            statement.setInt(2, id); // selecting student id which we are changing the email for
+            statement.executeUpdate(); // updating db
 
         } catch (Exception e){
             System.out.println(e);
@@ -74,14 +78,14 @@ public class students {
 
     public void deleteStudent(int id){
 
+        // Creating a string for the sql statement
         String insertSQL = "DELETE FROM students WHERE student_id = ?";
 
         try {
             Class.forName("org.postgresql.Driver");
-            Connection connection = DriverManager.getConnection(url, user, password);
+            Connection connection = DriverManager.getConnection(url, user, password); // connecting to db
             PreparedStatement statement = connection.prepareStatement(insertSQL);
-            statement.setInt(1, id);
-            int rowsRemoved = statement.executeUpdate();
+            statement.setInt(1, id); // selecting student we wish to remove
         }
         catch (Exception e){
             System.out.println(e);
