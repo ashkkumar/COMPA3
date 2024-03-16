@@ -51,10 +51,13 @@ public class students {
             statement.setString(3, email); // setting email
             statement.setDate(4, date); // setting join date
             statement.executeUpdate(); // updating database
+            statement.close();
+            connection.close();
 
         } catch (Exception e) {
             System.out.println(e);
         }
+
 
     }
 
@@ -70,6 +73,8 @@ public class students {
             statement.setString(1, email); // Setting email
             statement.setInt(2, id); // selecting student id which we are changing the email for
             statement.executeUpdate(); // updating db
+            statement.close();
+            connection.close();
 
         } catch (Exception e){
             System.out.println(e);
@@ -86,6 +91,14 @@ public class students {
             Connection connection = DriverManager.getConnection(url, user, password); // connecting to db
             PreparedStatement statement = connection.prepareStatement(insertSQL);
             statement.setInt(1, id); // selecting student we wish to remove
+            int rowsDeleted = statement.executeUpdate();
+            if (rowsDeleted > 0) {
+                System.out.println("Student deleted successfully");
+            } else {
+                System.out.println("No student found with student_id: " + id);
+            }
+            statement.close();
+            connection.close();
         }
         catch (Exception e){
             System.out.println(e);
