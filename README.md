@@ -21,7 +21,7 @@ This Java application connects to a PostgreSQL database and performs CRUD operat
        email TEXT NOT NULL UNIQUE,\
        enrollment_date DATE\
    );
-3. Add the initial data or any data you would like to use:
+3. Add the initial data or any data you would like to use:\
    INSERT INTO students (first_name, last_name, email, enrollment_date) VALUES \
     ('John', 'Doe', 'john.doe@example.com', '2023-09-01'),\
     ('Jane', 'Smith', 'jane.smith@example.com', '2023-09-01'),\
