@@ -37,5 +37,5 @@ The application provides the following functionality:
   deleteStudent(student_id): Deletes a student from the students table based on their student_id.
 
 ## Youtube Video Demonstration
-Below is a link to a youtube video demonstration of the application in use:
+Below is a link to a youtube video demonstration of the application in use:\
   https://youtu.be/Ix0ZFik6lO0
